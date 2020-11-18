@@ -1,36 +1,99 @@
 import { createGlobalStyle } from 'styled-components';
-import { StyleConstants } from './StyleConstants';
-/* istanbul ignore next */
+
 export const GlobalStyle = createGlobalStyle`
-  html,
-  body {
-    height: 100%;
-    width: 100%;
-    line-height: 1.5;
+  html, body, div, span, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  abbr, address, cite, code,
+  del, dfn, em, img, ins, kbd, q, samp,
+  small, strong, sub, sup, var,
+  b, i,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, figcaption, figure, 
+  footer, header, hgroup, menu, nav, section, summary,
+  time, mark, audio, video {
+      margin:0;
+      padding:0;
+      border:0;
+      outline:0;
+      font-size:100%;
+      vertical-align:baseline;
+      background:transparent;
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    padding-top: ${StyleConstants.NAV_BAR_HEIGHT};
-    background-color: ${p => p.theme.background};
+      line-height:1;
   }
 
-  body.fontLoaded {
-    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
-  
-  p,
-  label {
-    line-height: 1.5em;
+  article,aside,details,figcaption,figure,
+  footer,header,hgroup,menu,nav,section { 
+      display:block;
   }
 
-  input, select, button {
-    font-family: inherit;
-    font-size: inherit;
+  nav ul {
+      list-style:none;
   }
 
-  .icon {
-    width: 1.5rem;
-    height: 1.5rem;
+  blockquote, q {
+      quotes:none;
+  }
+
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+      content:'';
+      content:none;
+  }
+
+  a {
+      margin:0;
+      padding:0;
+      font-size:100%;
+      vertical-align:baseline;
+      background:transparent;
+      color:inherit;
+  }
+
+  /* change colours to suit your needs */
+  ins {
+      background-color:#ff9;
+      color:#000;
+      text-decoration:none;
+  }
+
+  /* change colours to suit your needs */
+  mark {
+      background-color:#ff9;
+      color:#000; 
+      font-style:italic;
+      font-weight:bold;
+  }
+
+  del {
+      text-decoration: line-through;
+  }
+
+  abbr[title], dfn[title] {
+      border-bottom:1px dotted;
+      cursor:help;
+  }
+
+  table {
+      border-collapse:collapse;
+      border-spacing:0;
+  }
+
+  /* change border colour to suit your needs */
+  hr {
+      display:block;
+      height:1px;
+      border:0;   
+      border-top:1px solid #cccccc;
+      margin:1em 0;
+      padding:0;
+  }
+
+  input, select {
+      vertical-align:middle;
   }
 `;
