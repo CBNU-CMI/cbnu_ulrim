@@ -1,12 +1,19 @@
 /* External dependencies */
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
+
+/* Internal dependencies */
+import { PetitionPage } from 'pages';
+import { GlobalStyle } from 'styles/global-styles';
 
 function App() {
   return (
-    <Switch>
-      <Route path="/" component={}/>
-    </Switch>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={PetitionPage} />
+      </Switch>
+      <GlobalStyle />
+    </BrowserRouter>
   );
 }
 
