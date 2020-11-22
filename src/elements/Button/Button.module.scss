@@ -1,0 +1,56 @@
+@import 'styles/_palette';
+
+.button {
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+
+  &.basic {
+    background: rgb(230, 230, 230);
+  }
+
+  &.primary {
+    color: #fff;
+    background: #337ab7;
+    border-color: #2e6da4;
+  }
+
+  &.success {
+    color: #fff;
+    background: #5cb85c;
+    border-color: #4cae4c;
+  }
+
+  &.info {
+    color: #31b0d5;
+    background: #5bc0de;
+    border-color: #46b8da;
+  }
+
+  &.warning {
+    color: #fff;
+    background: #f0ad4e;
+    border-color: #eea236;
+  }
+
+  &.danger {
+    color: #fff;
+    background: #d9534f;
+    border-color: #d43f3a;
+  }
+
+  &.sm {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  &.md {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+
+  &.lg {
+    font-size: 1.2rem;
+    padding: 6px 12px;
+  }
+}
