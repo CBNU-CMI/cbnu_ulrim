@@ -1,0 +1,16 @@
+@import '../../../styles/palette';
+
+ul {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  display: flex;
+  list-style: none;
+  li {
+    color: $black-500;
+    margin: 0.3rem;
+    padding: 0.3rem;
+    border: 0;
+    cursor: pointer;
+  }
+}
