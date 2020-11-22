@@ -10,7 +10,7 @@ function Navigation() {
     <ul>
       <li>
         <NavLink to="/petition" activeStyle={{ color: '#0077cc' }}>
-          청원
+          hihi
         </NavLink>
       </li>
       <li>
