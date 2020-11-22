@@ -52,6 +52,7 @@ export const GlobalStyle = createGlobalStyle`
       vertical-align:baseline;
       background:transparent;
       color:inherit;
+      text-decoration:none;
   }
 
   /* change colours to suit your needs */
