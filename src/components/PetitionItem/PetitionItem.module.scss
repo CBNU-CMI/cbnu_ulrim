@@ -1,0 +1,16 @@
+.petition-item {
+  display: flex;
+  width: 100%;
+
+  .id {
+    flex: 0.1;
+  }
+
+  .title {
+    flex: 0.5;
+  }
+
+  .createdAt {
+    flex: 0.4;
+  }
+}
