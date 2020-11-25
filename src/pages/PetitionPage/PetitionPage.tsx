@@ -32,11 +32,17 @@ function PetitionPage() {
   return (
     <div className={cx('main-layout')}>
       {downState ? (
-        <Navigation className="down" />
+        <>
+          <Navigation title="청원" className="down" />
+          <h1 className={cx('no-title')}>청원</h1>
+        </>
       ) : (
-        <Navigation className="" />
+        <>
+          <Navigation title="청원" className="" />
+          <h1 className={cx('title')}>청원</h1>
+        </>
       )}
-      <h1 className="title">청원</h1>
+
       <Switch>
         <Route path="/petition" component={PetitionList} />
       </Switch>

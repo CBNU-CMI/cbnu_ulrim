@@ -8,9 +8,10 @@ import styles from './Navigation.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Navigation({ className }) {
+function Navigation({ title, className }) {
   return (
     <div className={cx('box', className)}>
+      {className === 'down' ? <p>{title}</p> : ''}
       <ul>
         <li>
           <NavLink to="/petition" activeStyle={{ color: '#0077cc' }}>
