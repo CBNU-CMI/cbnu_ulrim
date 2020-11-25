@@ -1,0 +1,15 @@
+@import '../../styles/palette';
+.main-layout {
+  width: 65%;
+  margin: 0 auto;
+  position: relative;
+  .title {
+    margin-top: 10rem;
+    font-size: 3rem;
+  }
+  .no-title {
+    margin-top: 10rem;
+    font-size: 3rem;
+    opacity: 0;
+  }
+}

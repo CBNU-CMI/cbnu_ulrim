@@ -4,14 +4,14 @@ import { Switch, Route } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 /* Internal dependencies */
-import styles from './PetitionPage.module.scss';
+import styles from './PollPage.module.scss';
 import PetitionList from 'components/PetitionList';
 import PollList from 'components/PollList';
 import Navigation from 'components/Global/Navigation';
 
 const cx = classNames.bind(styles);
 
-function PetitionPage() {
+function PollPage() {
   const [downState, setDownState] = useState(false);
   const callback = entries => {
     entries.forEach(entry => {
@@ -37,15 +37,16 @@ function PetitionPage() {
     <div className={cx('main-layout')}>
       {downState ? (
         <>
-          <Navigation title="청원" className="down" />
-          <h1 className={cx('no-title')}>청원</h1>
+          <Navigation title="투표" className="down" />
+          <h1 className={cx('no-title')}>투표</h1>
         </>
       ) : (
         <>
-          <Navigation title="청원" className="" />
-          <h1 className={cx('title')}>청원</h1>
+          <Navigation title="투표" className="" />
+          <h1 className={cx('title')}>투표</h1>
         </>
       )}
+
       <Switch>
         <Route path="/petition" component={PetitionList} />
         <Route path="/poll" component={PollList} />
@@ -54,4 +55,4 @@ function PetitionPage() {
   );
 }
 
-export default PetitionPage;
+export default PollPage;
