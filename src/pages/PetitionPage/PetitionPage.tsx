@@ -22,21 +22,21 @@ function PetitionPage() {
     });
   };
   const observer = new IntersectionObserver(callback, {
-    rootMargin: '100px 100px',
+    rootMargin: '-100px -100px',
   });
 
   useEffect(() => {
-    observer.observe(document.querySelector<any>('.fake'));
+    observer.observe(document.querySelector<any>('h1'));
   }, []);
 
   return (
     <div className={cx('main-layout')}>
-      <div className="fake" />
       {downState ? (
         <Navigation className="down" />
       ) : (
         <Navigation className="" />
       )}
+      <h1 className="title">청원</h1>
       <Switch>
         <Route path="/petition" component={PetitionList} />
       </Switch>
