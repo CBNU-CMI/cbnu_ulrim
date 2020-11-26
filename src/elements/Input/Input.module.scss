@@ -1,0 +1,25 @@
+.input {
+  border-radius: 0.7rem;
+  color: #222;
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.12);
+  border: 0.0625rem solid transparent;
+  outline: none;
+  
+  &.sm {
+    height: 2rem;
+    width: 10rem;
+    padding: 0.7rem;
+  }
+
+  &.md {
+    height: 3rem;
+    width: 15rem;
+    padding: 1rem;
+  }
+
+  &.lg {
+    height: 4rem;
+    width: 20rem;
+    padding: 1.3rem;
+  }
+}
