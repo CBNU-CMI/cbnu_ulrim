@@ -4,16 +4,16 @@ import { Switch, Route } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 /* Internal dependencies */
-import styles from './PetitionPage.module.scss';
+import styles from './PollPage.module.scss';
 import PetitionList from 'components/PetitionList';
 import PollList from 'components/PollList';
 import Navigation from 'components/Global/Navigation';
 
 const cx = classNames.bind(styles);
 
-function PetitionPage() {
+function PollPage() {
   const [downState, setDownState] = useState(false);
-  const titleRef = useRef<HTMLHeadingElement>(null);
+  const titleRef = useRef<any>(null);
 
   const intersectionHandler = useRef<IntersectionObserverCallback>(
     ([entry]) => {
@@ -36,9 +36,9 @@ function PetitionPage() {
 
   return (
     <div className={cx('main-layout')}>
-      <Navigation title="청원" className={downState ? 'down' : ''} />
+      <Navigation title="투표" className={downState ? 'down' : ''} />
       <h1 ref={titleRef} className={cx(downState ? 'no-title' : 'title')}>
-        청원
+        투표
       </h1>
 
       <Switch>
@@ -49,4 +49,4 @@ function PetitionPage() {
   );
 }
 
-export default PetitionPage;
+export default PollPage;
