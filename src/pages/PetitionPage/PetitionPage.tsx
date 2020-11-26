@@ -13,7 +13,7 @@ const cx = classNames.bind(styles);
 
 function PetitionPage() {
   const [downState, setDownState] = useState(false);
-  const titleRef = useRef<any>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
 
   const intersectionHandler = useRef<IntersectionObserverCallback>(
     ([entry]) => {
