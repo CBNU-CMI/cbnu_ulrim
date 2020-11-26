@@ -9,18 +9,15 @@ import PetitionList from 'components/PetitionList';
 import PollList from 'components/PollList';
 import Navigation from 'components/Global/Navigation';
 import Login from 'components/Login';
-import Line from 'elements/Line';
 
 const cx = classNames.bind(styles);
 
-function LoginPage() {
+function SignupPage() {
   return (
     <div className={cx('main-layout')}>
       <Navigation title="로그인" className="" />
       <h1 className={cx('title')}>로그인</h1>
       <Login />
-      <Line margin="1rem" />
-
       <Switch>
         <Route path="/petition" component={PetitionList} />
         <Route path="/poll" component={PollList} />
@@ -29,4 +26,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default SignupPage;

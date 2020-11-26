@@ -1,0 +1,12 @@
+.line {
+  border-top: 0.1rem solid rgb(230, 230, 230);
+  width: 15rem;
+
+  &.sm {
+    border-top: 0.5rem;
+  }
+
+  &.lg {
+    border-top: 1.5rem;
+  }
+}
