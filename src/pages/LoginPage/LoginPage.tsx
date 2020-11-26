@@ -16,10 +16,6 @@ import Box from 'elements/Box';
 const cx = classNames.bind(styles);
 
 function LoginPage() {
-  const submit = () => {
-    console.log('submit');
-  };
-
   return (
     <div className={cx('main-layout')}>
       <Navigation title="로그인" className="" />
