@@ -9,9 +9,9 @@ const cx = classNames.bind(styles);
 
 function Button({ text, type = 'basic', size = 'md', onClick }) {
   return (
-    <span className={cx('button', type, size)} onClick={onClick}>
+    <div className={cx('button', type, size)} onClick={onClick}>
       {text}
-    </span>
+    </div>
   );
 }
 
