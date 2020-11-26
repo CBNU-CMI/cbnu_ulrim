@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
@@ -13,39 +13,34 @@ const cx = classNames.bind(styles);
 
 function PetitionPage() {
   const [downState, setDownState] = useState(false);
-  const callback = entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        setDownState(false);
-      } else {
-        setDownState(true);
-      }
-    });
-  };
-  const observer = new IntersectionObserver(callback, {
-    rootMargin: '-100px -100px',
-  });
+  const titleRef = useRef<any>(null);
+
+  const intersectionHandler = useRef<IntersectionObserverCallback>(
+    ([entry]) => {
+      setDownState(!entry.isIntersecting);
+    },
+  );
+
+  const intersectionObserverRef = useRef<IntersectionObserver>(
+    new IntersectionObserver(intersectionHandler.current, {
+      rootMargin: '-100px -100px',
+    }),
+  );
 
   useEffect(() => {
-    observer.observe(document.querySelector<any>('h1'));
+    intersectionObserverRef.current.observe(titleRef.current);
     return () => {
-      observer.disconnect();
+      intersectionObserverRef.current.disconnect();
     };
   }, []);
 
   return (
     <div className={cx('main-layout')}>
-      {downState ? (
-        <>
-          <Navigation title="청원" className="down" />
-          <h1 className={cx('no-title')}>청원</h1>
-        </>
-      ) : (
-        <>
-          <Navigation title="청원" className="" />
-          <h1 className={cx('title')}>청원</h1>
-        </>
-      )}
+      <Navigation title="청원" className={downState ? 'down' : ''} />
+      <h1 ref={titleRef} className={cx(downState ? 'no-title' : 'title')}>
+        청원
+      </h1>
+
       <Switch>
         <Route path="/petition" component={PetitionList} />
         <Route path="/poll" component={PollList} />
