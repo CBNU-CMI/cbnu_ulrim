@@ -1,7 +1,10 @@
 @import 'styles/_palette';
 
 .button {
-
+  &.basic {
+    color: #6a737c;
+    border-color: #f0f2f3;
+  }
 
   &.sm {
     font-size: 0.8rem;
@@ -25,4 +28,9 @@
   }
 
 
+  a {
+    color: #2ac1bc;
+    font-weight: bold;
+    cursor: pointer;
+  }
 }
