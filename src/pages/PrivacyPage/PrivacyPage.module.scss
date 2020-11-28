@@ -1,0 +1,19 @@
+@import '../../styles/palette';
+.main-layout {
+  width: 65%;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 30vh;
+
+  .title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .line {
+    margin-top: 2rem;
+  }
+}
