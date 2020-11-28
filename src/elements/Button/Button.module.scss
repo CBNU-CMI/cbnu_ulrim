@@ -1,10 +1,6 @@
 @import 'styles/_palette';
 
-.button {
-  text-align: center;
-  cursor: pointer;
-  border-radius: 0.7rem;
-  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.12);
+button {
 
   &.basic {
     background: rgb(230, 230, 230);
@@ -13,7 +9,6 @@
   &.primary {
     color: #fff;
     background: #2ac1bc;
-    border-color: #2e6da4;
   }
 
   &.success {

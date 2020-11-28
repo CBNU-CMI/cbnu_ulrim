@@ -1,15 +1,7 @@
 @import 'styles/_palette';
 
 .button {
-  text-align: center;
-  cursor: pointer;
-  border-radius: 0.7rem;
-  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.12);
 
-  &.basic {
-    color: #6a737c;
-    border-color: #f0f2f3;
-  }
 
   &.sm {
     font-size: 0.8rem;
@@ -32,11 +24,5 @@
     padding: 1rem;
   }
 
-  cursor: default;
 
-  a {
-    color: #2ac1bc;
-    font-weight: bold;
-    cursor: pointer;
-  }
 }
