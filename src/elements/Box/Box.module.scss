@@ -1,0 +1,36 @@
+@import 'styles/_palette';
+
+.button {
+  &.basic {
+    color: #6a737c;
+    border-color: #f0f2f3;
+  }
+
+  &.sm {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  &.md {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+
+  &.lg {
+    font-size: 1.2rem;
+    padding: 6px 12px;
+  }
+
+  &.xl {
+    height: 3rem;
+    width: 20rem;
+    padding: 1rem;
+  }
+
+
+  a {
+    color: #2ac1bc;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}

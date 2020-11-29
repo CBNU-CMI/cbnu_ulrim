@@ -1,9 +1,6 @@
 @import 'styles/_palette';
 
-.button {
-  text-align: center;
-  cursor: pointer;
-  border-radius: 5px;
+button {
 
   &.basic {
     background: rgb(230, 230, 230);
@@ -11,8 +8,7 @@
 
   &.primary {
     color: #fff;
-    background: #337ab7;
-    border-color: #2e6da4;
+    background: #2ac1bc;
   }
 
   &.success {
@@ -22,9 +18,8 @@
   }
 
   &.info {
-    color: #31b0d5;
-    background: #5bc0de;
-    border-color: #46b8da;
+    color: #6a737c;
+    border-color: #f0f2f3;
   }
 
   &.warning {
@@ -52,5 +47,11 @@
   &.lg {
     font-size: 1.2rem;
     padding: 6px 12px;
+  }
+
+  &.xl {
+    height: 3rem;
+    width: 20rem;
+    padding: 1rem;
   }
 }
