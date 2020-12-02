@@ -1,13 +1,9 @@
 /* External dependencies */
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 /* Internal dependencies */
 import styles from './LoginPage.module.scss';
-import PetitionList from 'components/PetitionList';
-import PollList from 'components/PollList';
-import Navigation from 'components/Global/Navigation';
 import Login from 'components/Login';
 import Line from 'elements/Line';
 import Box from 'elements/Box';
@@ -16,9 +12,8 @@ const cx = classNames.bind(styles);
 
 function LoginPage() {
   return (
-    <div className={cx('main-layout')}>
-      <Navigation title="로그인" className="" />
-      <h1 className={cx('title')}>로그인</h1>
+    <div className={cx('login-layout')}>
+      <div className={cx('title')}>로그인</div>
       <Login />
       <Line margin="1rem" />
       <Box
@@ -34,11 +29,6 @@ function LoginPage() {
         link="/forgot"
       />
       <Box marginTop="1" moveText="개인정보 처리방침" link="/privacy" />
-
-      <Switch>
-        <Route path="/petition" component={PetitionList} />
-        <Route path="/poll" component={PollList} />
-      </Switch>
     </div>
   );
 }
