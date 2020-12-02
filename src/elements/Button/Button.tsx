@@ -13,7 +13,8 @@ export enum ButtonSize {
   XL,
 }
 
-interface ButtonProps {
+interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+  text?: string;
   buttonColor: ButtonColor;
   buttonSize: ButtonSize;
   marginTop?: string;
@@ -41,6 +42,7 @@ function Button({
   buttonColor = ButtonColor.MINT,
   buttonSize = ButtonSize.XL,
   marginTop,
+  ...otherProps
 }) {
   return (
     <StyleButton
@@ -48,6 +50,7 @@ function Button({
       buttonSize={buttonSize}
       type="submit"
       marginTop={marginTop}
+      {...otherProps}
     >
       {text}
     </StyleButton>

@@ -1,5 +1,5 @@
 @import '../../styles/palette';
-.main-layout {
+.login-layout {
   width: 65%;
   margin: 0 auto;
   position: relative;
@@ -10,7 +10,8 @@
   height: 90vh;
 
   .title {
-    font-size: 2rem;
+    font-size: 3rem;
+    font-weight: bold;
     margin-bottom: 2rem;
   }
 
