@@ -1,6 +1,6 @@
 /* External dependencies */
-import React, { useEffect, useState } from 'react';
-import { Switch, Route, BrowserRouter, useLocation } from 'react-router-dom';
+import React from 'react';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 /* Internal dependencies */
