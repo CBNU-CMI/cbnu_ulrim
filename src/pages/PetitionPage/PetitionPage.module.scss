@@ -1,1 +1,13 @@
 @import '../../styles/palette';
+
+.petition {
+  .petition_descrive {
+    margin-top: 2rem;
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.25rem;
+    p {
+      padding: 0.3rem;
+    }
+  }
+}

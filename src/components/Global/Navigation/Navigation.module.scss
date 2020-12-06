@@ -6,6 +6,7 @@
   top: 0.5rem;
   display: flex;
   align-items: center;
+
   &.down {
     background-color: rgba(57, 57, 57, 0.1);
     backdrop-filter: blur(1.5rem) saturate(1);
@@ -46,6 +47,7 @@ ul {
 }
 
 .title {
+  text-align: center;
   margin-top: 10rem;
   font-size: 3rem;
 }
