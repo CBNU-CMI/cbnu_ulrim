@@ -17,6 +17,7 @@ function PetitionPage() {
         <p>'충북대학교 관계자'에게 문의하고 답변을 받는 철학을 지향합니다.</p>
       </div>
       <Archive link="/petition/archive" />
+
       <PetitionList />
     </div>
   );
