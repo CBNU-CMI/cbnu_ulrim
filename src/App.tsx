@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 /* Internal dependencies */
 import PetitionPage from 'pages/PetitionPage';
+import PetitionWrite from 'components/Petition/PetitionWrite';
 import PollPage from 'pages/PollPage';
 import LoginPage from 'pages/LoginPage';
 import { GlobalStyle } from 'styles/global-styles';
@@ -24,6 +25,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={PollPage} />
           <Route path="/petition" exact component={PetitionPage} />
+          <Route path="/petition/write" exact component={PetitionWrite} />
           <Route path="/poll" exact component={PollPage} />
           <Route path="/login" exact component={LoginPage} />
         </Switch>
