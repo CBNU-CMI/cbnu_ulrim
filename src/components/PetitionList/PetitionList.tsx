@@ -23,8 +23,8 @@ function PetitionList() {
           <span className={cx('end')}>청원마감일</span>
           <span className={cx('agree-num')}>참여인원</span>
         </div>
-        {mockData.map(data => {
-          return <PetitionCard key={data.id} data={data} />;
+        {mockData.map(petition => {
+          return <PetitionCard key={petition.id} petition={petition} />;
         })}
       </div>
     </div>

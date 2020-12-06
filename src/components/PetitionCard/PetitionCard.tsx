@@ -7,16 +7,14 @@ import styles from './PetitionCard.module.scss';
 
 const cx = classNames.bind(styles);
 
-function PetitionCard({ data }) {
+function PetitionCard({ petition }) {
   return (
-    <>
-      <div className={cx('petition-card')}>
-        <span className={cx('category')}>{data.category}</span>
-        <span className={cx('title')}>{data.title}</span>
-        <span className={cx('end')}>{data.end_date}</span>
-        <span className={cx('agree-num')}>{data.agree_num}</span>
-      </div>
-    </>
+    <div className={cx('petition-card')}>
+      <span className={cx('category')}>{petition.category}</span>
+      <span className={cx('title')}>{petition.title}</span>
+      <span className={cx('end')}>{petition.end_date}</span>
+      <span className={cx('agree-num')}>{petition.agree_num}</span>
+    </div>
   );
 }
 
