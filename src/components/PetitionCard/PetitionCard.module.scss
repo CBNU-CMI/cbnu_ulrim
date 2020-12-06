@@ -1,0 +1,26 @@
+.petition-card {
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.12);
+  border-radius: 0.7rem;
+  background-color: #fff;
+  margin: 0.7rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+
+  .category {
+    flex: 1;
+  }
+
+  .title {
+    flex: 2;
+    text-align: left;
+  }
+
+  .end {
+    flex: 1;
+  }
+
+  .agree-num {
+    flex: 1;
+  }
+}

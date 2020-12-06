@@ -14,6 +14,10 @@ const MainLayout = styled.div`
   width: 65%;
   margin: 0 auto;
   position: relative;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 function App() {
