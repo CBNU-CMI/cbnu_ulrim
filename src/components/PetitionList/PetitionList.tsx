@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 
 function PetitionList() {
   var [itemIndex, setItemIndex] = useState(0);
-  const [contents, setContents] = useState([]);
+  const [contents, setContents] = useState(new Array());
   const [observerRef, setObserverRef] = useState<HTMLDivElement>();
 
   const addContentsList = () => {
