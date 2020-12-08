@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useEffect, useCallback, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import classNames from 'classnames/bind';
 
 /* Internal dependencies */
@@ -12,30 +12,34 @@ const cx = classNames.bind(styles);
 function PetitionList() {
   const [itemIndex, setItemIndex] = useState(0);
   const [contents, setContents] = useState(mockData.slice(0, 5));
+  const [observerRef, setObserverRef] = useState<HTMLDivElement>();
 
-  const _infiniteScroll = useCallback(() => {
-    let scrollHeight = Math.max(
-      document.documentElement.scrollHeight,
-      document.body.scrollHeight,
-    );
-    let scrollTop = Math.max(
-      document.documentElement.scrollTop,
-      document.body.scrollTop,
-    );
-    let clientHeight = document.documentElement.clientHeight;
+  const addContentsList = () => {
+    setItemIndex(itemIndex + 5);
+    setContents(contents.concat(mockData.slice(itemIndex + 5, itemIndex + 10)));
+  };
 
-    if (scrollTop + clientHeight === scrollHeight) {
-      setItemIndex(itemIndex + 5);
-      setContents(
-        contents.concat(mockData.slice(itemIndex + 5, itemIndex + 10)),
-      );
-    }
-  }, [itemIndex, contents]);
+  const intersectionHandler = useRef<IntersectionObserverCallback>(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        addContentsList();
+      }
+    },
+  );
+
+  const intersectionObserverRef = useRef<IntersectionObserver>(
+    new IntersectionObserver(intersectionHandler.current, {
+      threshold: 1,
+    }),
+  );
 
   useEffect(() => {
-    window.addEventListener('scroll', _infiniteScroll, true);
-    return () => window.removeEventListener('scroll', _infiniteScroll, true);
-  }, [_infiniteScroll]);
+    if (!observerRef) return;
+    intersectionObserverRef.current.observe(observerRef);
+    return () => {
+      intersectionObserverRef.current.disconnect();
+    };
+  }, [observerRef]);
 
   return (
     <div className={cx('petition_list')}>
@@ -53,6 +57,10 @@ function PetitionList() {
         {contents.map(petition => {
           return <PetitionCard key={petition.id} petition={petition} />;
         })}
+        <div
+          className="observer"
+          ref={ref => setObserverRef(ref as HTMLDivElement)}
+        />
       </div>
     </div>
   );

@@ -16,7 +16,6 @@ function Login() {
         initialValues={{ id: '', password: '' }}
         onSubmit={(data, { setSubmitting }) => {
           setSubmitting(true);
-          console.log(data);
           setSubmitting(false);
         }}
       >
