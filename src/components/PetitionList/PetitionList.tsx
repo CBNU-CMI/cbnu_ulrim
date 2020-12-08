@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 
 /* Internal dependencies */
@@ -10,35 +10,35 @@ import mockData from './mockData.json';
 const cx = classNames.bind(styles);
 
 function PetitionList() {
-  const [itemIndex, setItemIndex] = useState(0);
-  const [contents, setContents] = useState(mockData.slice(0, 5));
+  var [itemIndex, setItemIndex] = useState(0);
+  const [contents, setContents] = useState([]);
   const [observerRef, setObserverRef] = useState<HTMLDivElement>();
 
   const addContentsList = () => {
-    setItemIndex(itemIndex + 5);
-    setContents(contents.concat(mockData.slice(itemIndex + 5, itemIndex + 10)));
+    itemIndex += 5;
+    setItemIndex(itemIndex);
   };
 
-  const intersectionHandler = useRef<IntersectionObserverCallback>(
+  useEffect(() => {
+    setContents(contents.concat(mockData.slice(itemIndex, itemIndex + 5)));
+  }, [itemIndex]);
+
+  const observer = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting) {
+        console.log('It works!');
         addContentsList();
       }
     },
-  );
-
-  const intersectionObserverRef = useRef<IntersectionObserver>(
-    new IntersectionObserver(intersectionHandler.current, {
-      threshold: 1,
-    }),
+    {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1,
+    },
   );
 
   useEffect(() => {
-    if (!observerRef) return;
-    intersectionObserverRef.current.observe(observerRef);
-    return () => {
-      intersectionObserverRef.current.disconnect();
-    };
+    if (observerRef) observer.observe(observerRef);
   }, [observerRef]);
 
   return (
