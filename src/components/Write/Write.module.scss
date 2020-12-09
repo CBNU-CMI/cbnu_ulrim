@@ -1,0 +1,30 @@
+.write-icon {
+  position: fixed;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: rgba(42, 193, 188, 0.8);
+  bottom: 5rem;
+  right: 22rem;
+  box-shadow: 0 0.625rem 3.125rem rgba(0, 0, 0, 0.2);
+  animation-name: write-up;
+  animation-duration: 0.5s;
+
+  .BsPencilSquare {
+    position: absolute;
+    left: 0.8rem;
+    top: 0.8rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    color: white;
+  }
+
+  @keyframes write-up {
+    from {
+      transform: translateY(10rem);
+    }
+    to {
+      transform: translateY(0rem);
+    }
+  }
+}

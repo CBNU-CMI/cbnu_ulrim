@@ -16,6 +16,13 @@
   }
 
   .petition_cards {
+    border-radius: 0.7rem;
+    background-color: #f0f2f3;
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.12);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    margin-top: 1rem;
+
     .petition_header {
       display: flex;
       justify-content: space-around;
@@ -37,12 +44,5 @@
         flex: 1;
       }
     }
-
-    border-radius: 0.7rem;
-    background-color: #f0f2f3;
-    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.12);
-    padding: 2rem 1.5rem;
-    text-align: center;
-    margin-top: 1rem;
   }
 }
