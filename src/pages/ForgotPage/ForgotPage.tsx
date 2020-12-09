@@ -1,12 +1,9 @@
 /* External dependencies */
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 /* Internal dependencies */
 import styles from './ForgotPage.module.scss';
-import PetitionList from 'components/PetitionList';
-import PollList from 'components/PollList';
 import Forgot from 'components/Forgot';
 import Line from 'elements/Line';
 import Box from 'elements/Box';
@@ -26,11 +23,6 @@ function ForgotPage() {
         link="/login"
       />
       <Box marginTop="1" moveText="개인정보 처리방침" link="/privacy" />
-
-      <Switch>
-        <Route path="/petition" component={PetitionList} />
-        <Route path="/poll" component={PollList} />
-      </Switch>
     </div>
   );
 }
