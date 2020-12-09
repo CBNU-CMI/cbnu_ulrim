@@ -4,18 +4,18 @@ import { Switch, Route } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 /* Internal dependencies */
-import styles from './LoginPage.module.scss';
+import styles from './SignupPage.module.scss';
 import PetitionList from 'components/PetitionList';
 import PollList from 'components/PollList';
-import Login from 'components/Login';
+import Signup from 'components/Signup';
 
 const cx = classNames.bind(styles);
 
 function SignupPage() {
   return (
     <div className={cx('main-layout')}>
-      <h1 className={cx('title')}>로그인</h1>
-      <Login />
+      <h1 className={cx('title')}>회원가입</h1>
+      <Signup />
       <Switch>
         <Route path="/petition" component={PetitionList} />
         <Route path="/poll" component={PollList} />

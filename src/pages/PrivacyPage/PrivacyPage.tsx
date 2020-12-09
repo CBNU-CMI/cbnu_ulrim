@@ -16,7 +16,7 @@ const cx = classNames.bind(styles);
 function PrivacyPage() {
   return (
     <div className={cx('main-layout')}>
-      <Navigation title="개인정보 처리방침" className="" />
+      {/* <Navigation title="개인정보 처리방침" className="" /> */}
       <h1 className={cx('title')}>개인정보 처리방침</h1>
       <Line margin="1rem" />
       <Privacy />

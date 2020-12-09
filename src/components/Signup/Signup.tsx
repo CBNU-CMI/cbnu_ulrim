@@ -9,7 +9,7 @@ import Button from 'elements/Button';
 
 const cx = classNames.bind(styles);
 
-function Signup() {
+function SignupPage() {
   const submit = () => {
     console.log('submit');
   };
@@ -26,10 +26,16 @@ function Signup() {
         <Input placeholder="비밀번호" />
       </div>
       <div className={cx('button-wrapper')}>
-        <Button text="회원가입" onClick={submit} type="primary" size="xl" />
+        <Button
+          text="회원가입"
+          onClick={submit}
+          type="primary"
+          marginTop="1rem"
+          size="xl"
+        />
       </div>
     </div>
   );
 }
 
-export default Signup;
+export default SignupPage;

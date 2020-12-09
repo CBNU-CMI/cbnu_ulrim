@@ -20,7 +20,13 @@ function Forgot() {
         <Input placeholder="아이디" />
       </div>
       <div className={cx('button-wrapper')}>
-        <Button text="이메일 발송" onClick={submit} type="primary" size="xl" />
+        <Button
+          text="이메일 발송"
+          onClick={submit}
+          type="primary"
+          marginTop="1rem"
+          size="xl"
+        />
       </div>
     </div>
   );

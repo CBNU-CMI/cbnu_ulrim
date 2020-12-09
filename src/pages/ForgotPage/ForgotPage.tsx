@@ -17,23 +17,17 @@ const cx = classNames.bind(styles);
 function ForgotPage() {
   return (
     <div className={cx('main-layout')}>
-      <Navigation title="개인정보 처리방침" className="" />
+      {/* <Navigation title="개인정보 처리방침" className="" /> */}
       <h1 className={cx('title')}>개인정보</h1>
       <Forgot />
       <Line margin="1rem" />
       <Box
-        margin="1rem"
+        marginTop="1rem"
         text="이미 가입하셨나요? "
         moveText="로그인 →"
         link="/login"
-        size="xl"
       />
-      <Box
-        margin="1rem"
-        moveText="개인정보 처리방침"
-        link="/privacy"
-        size="xl"
-      />
+      <Box marginTop="1rem" moveText="개인정보 처리방침" link="/privacy" />
 
       <Switch>
         <Route path="/petition" component={PetitionList} />
