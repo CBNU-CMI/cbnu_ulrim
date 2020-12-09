@@ -4,9 +4,6 @@ import classNames from 'classnames/bind';
 
 /* Internal dependencies */
 import styles from './LoginPage.module.scss';
-import PetitionList from 'components/PetitionList';
-import PollList from 'components/PollList';
-import Navigation from 'components/Global/Navigation';
 import Login from 'components/Login';
 import Line from 'elements/Line';
 import Box from 'elements/Box';
