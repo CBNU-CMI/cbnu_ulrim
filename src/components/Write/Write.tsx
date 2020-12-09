@@ -10,9 +10,9 @@ const cx = classNames.bind(styles);
 
 function Write() {
   return (
-    <div className={cx('write-icon')}>
+    <a href="/petition/write" className={cx('write-icon')}>
       <BsPencilSquare className={cx('BsPencilSquare')} />
-    </div>
+    </a>
   );
 }
 
