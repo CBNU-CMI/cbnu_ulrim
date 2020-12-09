@@ -7,7 +7,6 @@ import classNames from 'classnames/bind';
 import styles from './PrivacyPage.module.scss';
 import PetitionList from 'components/PetitionList';
 import PollList from 'components/PollList';
-import Navigation from 'components/Global/Navigation';
 import Privacy from 'components/Privacy';
 import Line from 'elements/Line';
 
@@ -16,7 +15,6 @@ const cx = classNames.bind(styles);
 function PrivacyPage() {
   return (
     <div className={cx('main-layout')}>
-      {/* <Navigation title="개인정보 처리방침" className="" /> */}
       <h1 className={cx('title')}>개인정보 처리방침</h1>
       <Line margin="1rem" />
       <Privacy />
