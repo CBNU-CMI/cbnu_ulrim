@@ -1,15 +1,13 @@
 @import '../../styles/palette';
-.main-layout {
-  width: 65%;
-  margin: 0 auto;
-  position: relative;
-  .title {
-    margin-top: 10rem;
-    font-size: 3rem;
-  }
-  .no-title {
-    margin-top: 10rem;
-    font-size: 3rem;
-    opacity: 0;
+
+.petition {
+  .petition_descrive {
+    margin-top: 2rem;
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.25rem;
+    p {
+      padding: 0.3rem;
+    }
   }
 }

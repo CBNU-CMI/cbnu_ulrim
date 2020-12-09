@@ -1,0 +1,57 @@
+@import 'styles/_palette';
+
+button {
+
+  &.basic {
+    background: rgb(230, 230, 230);
+  }
+
+  &.primary {
+    color: #fff;
+    background: #2ac1bc;
+  }
+
+  &.success {
+    color: #fff;
+    background: #5cb85c;
+    border-color: #4cae4c;
+  }
+
+  &.info {
+    color: #6a737c;
+    border-color: #f0f2f3;
+  }
+
+  &.warning {
+    color: #fff;
+    background: #f0ad4e;
+    border-color: #eea236;
+  }
+
+  &.danger {
+    color: #fff;
+    background: #d9534f;
+    border-color: #d43f3a;
+  }
+
+  &.sm {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  &.md {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+
+  &.lg {
+    font-size: 1.2rem;
+    padding: 6px 12px;
+  }
+
+  &.xl {
+    height: 3rem;
+    width: 20rem;
+    padding: 1rem;
+  }
+}

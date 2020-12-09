@@ -1,15 +1,21 @@
 @import '../../../styles/palette';
 .box {
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
   position: fixed;
   width: 65%;
   height: 60px;
   top: 0.5rem;
   display: flex;
   align-items: center;
+
   &.down {
     background-color: rgba(57, 57, 57, 0.1);
     backdrop-filter: blur(1.5rem) saturate(1);
     border-radius: 0.425rem;
+    box-shadow: 0 0.625rem 3.125rem rgba(0, 0, 0, 0.2);
+    opacity: 1;
   }
 
   p {
@@ -43,4 +49,15 @@ ul {
     border: 0;
     cursor: pointer;
   }
+}
+
+.title {
+  text-align: center;
+  margin-top: 10rem;
+  font-size: 3rem;
+}
+.no-title {
+  margin-top: 10rem;
+  font-size: 3rem;
+  opacity: 0;
 }

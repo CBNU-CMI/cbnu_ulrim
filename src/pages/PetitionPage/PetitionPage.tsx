@@ -1,50 +1,23 @@
 /* External dependencies */
-import React, { useEffect, useState, useRef } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React from 'react';
 import classNames from 'classnames/bind';
 
 /* Internal dependencies */
 import styles from './PetitionPage.module.scss';
 import PetitionList from 'components/PetitionList';
-import PollList from 'components/PollList';
-import Navigation from 'components/Global/Navigation';
+import Archive from 'components/Archive';
 
 const cx = classNames.bind(styles);
 
 function PetitionPage() {
-  const [downState, setDownState] = useState(false);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-
-  const intersectionHandler = useRef<IntersectionObserverCallback>(
-    ([entry]) => {
-      setDownState(!entry.isIntersecting);
-    },
-  );
-
-  const intersectionObserverRef = useRef<IntersectionObserver>(
-    new IntersectionObserver(intersectionHandler.current, {
-      rootMargin: '-100px -100px',
-    }),
-  );
-
-  useEffect(() => {
-    intersectionObserverRef.current.observe(titleRef.current);
-    return () => {
-      intersectionObserverRef.current.disconnect();
-    };
-  }, []);
-
   return (
-    <div className={cx('main-layout')}>
-      <Navigation title="청원" className={downState ? 'down' : ''} />
-      <h1 ref={titleRef} className={cx(downState ? 'no-title' : 'title')}>
-        청원
-      </h1>
-
-      <Switch>
-        <Route path="/petition" component={PetitionList} />
-        <Route path="/poll" component={PollList} />
-      </Switch>
+    <div className={cx('petition')}>
+      <div className={cx('petition_descrive')}>
+        <p>울림의 청원은 동의수 100건이 넘는 사안에 대하여</p>
+        <p>'충북대학교 관계자'에게 문의하고 답변을 받는 철학을 지향합니다.</p>
+      </div>
+      <Archive link="/petition/archive" />
+      <PetitionList />
     </div>
   );
 }

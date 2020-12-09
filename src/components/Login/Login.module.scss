@@ -1,0 +1,21 @@
+.button-wrapper {
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.7rem;
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.12);
+  color: #fff;
+  background: #2ac1bc;
+  border-color: #2e6da4;
+}
+
+.input-wrapper {
+  border-radius: 0.7rem;
+  color: #222;
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.12);
+  border: 0.0625rem solid transparent;
+  outline: none;
+  height: 3rem;
+  width: 20rem;
+  padding: 1rem;
+  margin-top: 1rem;
+}

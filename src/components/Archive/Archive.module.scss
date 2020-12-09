@@ -1,0 +1,35 @@
+.archive-box {
+  display: flex;
+  justify-content: center;
+}
+
+.archive {
+  display: flex;
+  justify-content: center;
+  border: 0.1rem solid #6a737c;
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.12);
+  border-radius: 0.7rem;
+  margin: 1rem;
+  padding: 1.25rem;
+  cursor: pointer;
+
+  .archive-text {
+    font-size: 1.5rem;
+
+    span {
+      font-weight: bold;
+      margin-left: 0.625rem;
+    }
+
+    p {
+      margin-top: 0.5625rem;
+      font-size: 1.125rem;
+      font-weight: 500;
+    }
+  }
+
+  .IoIosArrowForward {
+    justify-content: flex-end;
+    color: gray;
+  }
+}
