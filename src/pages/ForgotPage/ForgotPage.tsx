@@ -7,7 +7,6 @@ import classNames from 'classnames/bind';
 import styles from './ForgotPage.module.scss';
 import PetitionList from 'components/PetitionList';
 import PollList from 'components/PollList';
-import Navigation from 'components/Global/Navigation';
 import Forgot from 'components/Forgot';
 import Line from 'elements/Line';
 import Box from 'elements/Box';
@@ -17,17 +16,16 @@ const cx = classNames.bind(styles);
 function ForgotPage() {
   return (
     <div className={cx('main-layout')}>
-      {/* <Navigation title="개인정보 처리방침" className="" /> */}
-      <h1 className={cx('title')}>개인정보</h1>
+      <h1 className={cx('title')}>암호 변경</h1>
       <Forgot />
       <Line margin="1rem" />
       <Box
-        marginTop="1rem"
+        marginTop="1"
         text="이미 가입하셨나요? "
         moveText="로그인 →"
         link="/login"
       />
-      <Box marginTop="1rem" moveText="개인정보 처리방침" link="/privacy" />
+      <Box marginTop="1" moveText="개인정보 처리방침" link="/privacy" />
 
       <Switch>
         <Route path="/petition" component={PetitionList} />
