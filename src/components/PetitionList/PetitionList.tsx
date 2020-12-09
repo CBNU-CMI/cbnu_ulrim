@@ -6,6 +6,7 @@ import classNames from 'classnames/bind';
 import styles from './PetitionList.module.scss';
 import PetitionCard from 'components/PetitionCard';
 import mockData from './mockData.json';
+import Write from 'components/Write';
 
 const cx = classNames.bind(styles);
 
@@ -27,6 +28,7 @@ function PetitionList() {
           return <PetitionCard key={petition.id} petition={petition} />;
         })}
       </div>
+      <Write />
     </div>
   );
 }
