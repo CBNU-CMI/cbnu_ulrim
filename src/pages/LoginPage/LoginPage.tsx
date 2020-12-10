@@ -7,7 +7,6 @@ import styles from './LoginPage.module.scss';
 import Login from 'components/Login';
 import Line from 'elements/Line';
 import Box from 'elements/Box';
-
 const cx = classNames.bind(styles);
 
 function LoginPage() {
