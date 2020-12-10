@@ -5,7 +5,6 @@ import classNames from 'classnames/bind';
 
 /* Internal dependencies */
 import styles from './LoginPage.module.scss';
-import PetitionList from 'components/PetitionList';
 import PollList from 'components/PollList';
 import Login from 'components/Login';
 
@@ -17,7 +16,6 @@ function SignupPage() {
       <h1 className={cx('title')}>로그인</h1>
       <Login />
       <Switch>
-        <Route path="/petition" component={PetitionList} />
         <Route path="/poll" component={PollList} />
       </Switch>
     </div>

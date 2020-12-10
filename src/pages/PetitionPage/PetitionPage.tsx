@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 
 /* Internal dependencies */
 import styles from './PetitionPage.module.scss';
-import PetitionList from 'components/PetitionList';
+import PetitionList from 'components/Petition/PetitionList';
 import Archive from 'components/Archive';
 
 const cx = classNames.bind(styles);
