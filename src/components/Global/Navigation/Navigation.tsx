@@ -8,11 +8,11 @@ import styles from './Navigation.module.scss';
 
 const cx = classNames.bind(styles);
 
-function ExNavLink({ to, activePath, activeStyle, children }) {
+function ExNavLink({ to, activePath, children }) {
   const location = useLocation();
   const active = activePath.includes(location.pathname);
   let style = {};
-  if (active) style = activeStyle;
+  if (active) style = { color: '#2ac1bc' };
   return (
     <NavLink to={to} style={style}>
       {children}
@@ -75,17 +75,12 @@ function Navigation() {
             <ExNavLink
               to="/petition"
               activePath={['/', '/petition', '/petition/write']}
-              activeStyle={{ color: '#2ac1bc' }}
             >
               청원
             </ExNavLink>
           </li>
           <li>
-            <ExNavLink
-              to="/poll"
-              activePath={['/poll']}
-              activeStyle={{ color: '#2ac1bc' }}
-            >
+            <ExNavLink to="/poll" activePath={['/poll']}>
               투표
             </ExNavLink>
           </li>
@@ -93,7 +88,6 @@ function Navigation() {
             <ExNavLink
               to="/login"
               activePath={['/login', '/signup', '/forgot', '/privacy']}
-              activeStyle={{ color: '#2ac1bc' }}
             >
               로그인
             </ExNavLink>
