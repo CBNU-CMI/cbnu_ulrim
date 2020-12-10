@@ -32,7 +32,8 @@ function App() {
         <Navigation />
         <Switch>
           <Route path="/" exact component={PetitionPage} />
-          <Route path="/petition" component={PetitionPage} />
+          <Route path="/petition" exact component={PetitionPage} />
+          <Route path="/petition/write" component={PetitionWrite} />
           <Route path="/poll" component={PollPage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/signup" component={SignupPage} />
