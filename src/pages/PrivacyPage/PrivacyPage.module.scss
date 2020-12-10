@@ -1,13 +1,12 @@
 @import '../../styles/palette';
-.login-layout {
+.main-layout {
   width: 65%;
   margin: 0 auto;
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
-  height: 90vh;
+  height: 70vh;
 
   .title {
     line-height: 1;
