@@ -27,6 +27,7 @@ const StyleBox = styled.div`
   border-radius: 0.7rem;
   box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.12);
   cursor: default;
+  outline: none;
   border-color: #f0f2f3;
   color: #6a737c;
   padding: 1rem;

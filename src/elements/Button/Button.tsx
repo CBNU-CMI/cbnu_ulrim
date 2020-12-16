@@ -30,6 +30,7 @@ const StyleButton = styled.button`
   border-radius: 0.7rem;s
   box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.12);
   border: none;
+  outline: none;
   background-color: ${(props: ButtonProps) => ButtonColors[props.buttonColor]};
   color: #fff;
   margin-top: ${(props: ButtonProps) => props.marginTop + 'rem'};

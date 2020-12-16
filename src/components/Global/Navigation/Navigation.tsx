@@ -60,17 +60,17 @@ function Navigation() {
         {downState ? <p>{title}</p> : ''}
         <ul>
           <li>
-            <NavLink to="/petition" activeStyle={{ color: '#0077cc' }}>
+            <NavLink to="/petition" activeStyle={{ color: '#2ac1bc' }}>
               청원
             </NavLink>
           </li>
           <li>
-            <NavLink to="/poll" activeStyle={{ color: '#0077cc' }}>
+            <NavLink to="/poll" activeStyle={{ color: '#2ac1bc' }}>
               투표
             </NavLink>
           </li>
           <li>
-            <NavLink to="/login" activeStyle={{ color: '#0077cc' }}>
+            <NavLink to="/login" activeStyle={{ color: '#2ac1bc' }}>
               로그인
             </NavLink>
           </li>
