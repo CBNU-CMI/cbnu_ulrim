@@ -5,8 +5,13 @@ import styled from 'styled-components';
 
 /* Internal dependencies */
 import PetitionPage from 'pages/PetitionPage';
+import PetitionWrite from 'components/Petition/PetitionWrite';
 import PollPage from 'pages/PollPage';
 import LoginPage from 'pages/LoginPage';
+
+import SignupPage from 'pages/SignupPage';
+import ForgotPage from 'pages/ForgotPage';
+import PrivacyPage from 'pages/PrivacyPage';
 import { GlobalStyle } from 'styles/global-styles';
 import Navigation from 'components/Global/Navigation';
 
@@ -26,10 +31,14 @@ function App() {
       <MainLayout>
         <Navigation />
         <Switch>
-          <Route path="/" exact component={PollPage} />
+          <Route path="/" exact component={PetitionPage} />
           <Route path="/petition" exact component={PetitionPage} />
-          <Route path="/poll" exact component={PollPage} />
-          <Route path="/login" exact component={LoginPage} />
+          <Route path="/petition/write" component={PetitionWrite} />
+          <Route path="/poll" component={PollPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/signup" component={SignupPage} />
+          <Route path="/forgot" component={ForgotPage} />
+          <Route path="/privacy" component={PrivacyPage} />
         </Switch>
         <GlobalStyle />
       </MainLayout>

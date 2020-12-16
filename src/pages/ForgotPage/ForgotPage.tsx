@@ -3,18 +3,18 @@ import React from 'react';
 import classNames from 'classnames/bind';
 
 /* Internal dependencies */
-import styles from './SignupPage.module.scss';
-import Signup from 'components/Signup';
+import styles from './ForgotPage.module.scss';
+import Forgot from 'components/Forgot';
 import Line from 'elements/Line';
 import Box from 'elements/Box';
 
 const cx = classNames.bind(styles);
 
-function SignupPage() {
+function ForgotPage() {
   return (
     <div className={cx('main-layout')}>
-      <h1 className={cx('title')}>회원가입</h1>
-      <Signup />
+      <h1 className={cx('title')}>암호 변경</h1>
+      <Forgot />
       <Line margin="1rem" />
       <Box
         marginTop="1"
@@ -27,4 +27,4 @@ function SignupPage() {
   );
 }
 
-export default SignupPage;
+export default ForgotPage;
