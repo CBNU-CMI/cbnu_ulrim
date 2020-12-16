@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useCallback, useState, useRef } from 'react';
 import { useLocation, NavLink } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
@@ -8,13 +8,20 @@ import styles from './Navigation.module.scss';
 
 const cx = classNames.bind(styles);
 
+const ACTIVE_STYLE = {
+  color: '#2ac1bc',
+};
+
 function ExNavLink({ to, activePath, children }) {
-  const location = useLocation();
-  const active = activePath.includes(location.pathname);
-  let style = {};
-  if (active) style = { color: '#2ac1bc' };
+  const isActive = useCallback(
+    (match, location) => {
+      return activePath.includes(location.pathname);
+    },
+    [activePath],
+  );
+
   return (
-    <NavLink to={to} style={style}>
+    <NavLink to={to} isActive={isActive} activeStyle={ACTIVE_STYLE}>
       {children}
     </NavLink>
   );
