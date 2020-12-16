@@ -1,0 +1,1 @@
+export const PETITION_LIST = { ADDITIONAL_LOAD_COUNT: 5 };
