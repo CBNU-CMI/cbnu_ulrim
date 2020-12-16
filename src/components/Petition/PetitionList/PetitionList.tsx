@@ -7,7 +7,7 @@ import styles from './PetitionList.module.scss';
 import PetitionCard from 'components/PetitionCard';
 import mockData from './mockData.json';
 import Write from 'components/Write';
-import { PETITION_LIST } from '../constants';
+import { PETITION_LIST } from '../../constants';
 
 const cx = classNames.bind(styles);
 
