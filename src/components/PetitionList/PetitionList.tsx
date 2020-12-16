@@ -6,7 +6,10 @@ import classNames from 'classnames/bind';
 import styles from './PetitionList.module.scss';
 import PetitionCard from 'components/PetitionCard';
 import mockData from './mockData.json';
+<<<<<<< HEAD
 import Write from 'components/Write';
+=======
+>>>>>>> 036aed939b565412a5e32a98ba4161d646774e92
 import { PETITION_LIST } from '../constants';
 
 const cx = classNames.bind(styles);
