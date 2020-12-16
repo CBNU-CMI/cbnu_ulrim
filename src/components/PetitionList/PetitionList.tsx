@@ -7,6 +7,7 @@ import styles from './PetitionList.module.scss';
 import PetitionCard from 'components/PetitionCard';
 import mockData from './mockData.json';
 import Write from 'components/Write';
+import { PETITION_LIST } from '../constants';
 
 const cx = classNames.bind(styles);
 
@@ -33,6 +34,41 @@ function PetitionList() {
       intersectionObserverRef.current.disconnect();
     };
   }, [writeRef]);
+  var [itemIndex, setItemIndex] = useState(0);
+  const [contents, setContents] = useState(Array<any>([]));
+  const observerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setContents(prev =>
+      prev.concat(
+        mockData.slice(
+          itemIndex,
+          itemIndex + PETITION_LIST.ADDITIONAL_LOAD_COUNT,
+        ),
+      ),
+    );
+  }, [itemIndex]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setItemIndex(prev => prev + PETITION_LIST.ADDITIONAL_LOAD_COUNT);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1,
+      },
+    );
+
+    observer.observe(observerRef.current as HTMLDivElement);
+
+    return function cleanup() {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <div className={cx('petition_list')}>
@@ -52,9 +88,10 @@ function PetitionList() {
           <span className={cx('end')}>청원마감일</span>
           <span className={cx('agree-num')}>참여인원</span>
         </div>
-        {mockData.map(petition => {
+        {contents.map(petition => {
           return <PetitionCard key={petition.id} petition={petition} />;
         })}
+        <div className="observer" ref={observerRef} />
       </div>
       {downState ? <Write /> : ''}
     </div>
