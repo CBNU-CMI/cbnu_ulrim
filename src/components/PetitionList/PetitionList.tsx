@@ -6,10 +6,7 @@ import classNames from 'classnames/bind';
 import styles from './PetitionList.module.scss';
 import PetitionCard from 'components/PetitionCard';
 import mockData from './mockData.json';
-<<<<<<< HEAD
 import Write from 'components/Write';
-=======
->>>>>>> 036aed939b565412a5e32a98ba4161d646774e92
 import { PETITION_LIST } from '../constants';
 
 const cx = classNames.bind(styles);
@@ -55,12 +52,12 @@ function PetitionList() {
     <div className={cx('petition_list')}>
       <div className={cx('petition_new')}>최신 청원들</div>
       <div className={cx('petition_write')}>
-        <a
+        {/* <a
           ref={ref => setWriteRef(ref as HTMLAnchorElement)}
           href="/petition/write"
         >
           지금 청원하기
-        </a>
+        </a> */}
       </div>
       <div className={cx('petition_cards')}>
         <div className={cx('petition_header')}>
@@ -74,7 +71,7 @@ function PetitionList() {
         })}
         <div className="observer" ref={observerRef} />
       </div>
-      {downState ? <Write /> : ''}
+      {/* {downState ? <Write /> : ''} */}
     </div>
   );
 }
