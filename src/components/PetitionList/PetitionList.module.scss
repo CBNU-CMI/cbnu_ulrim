@@ -1,10 +1,9 @@
 .petition_list {
-  margin-top: 3.75rem;
-  margin-bottom: 3.75rem;
-
+  margin-bottom: 3rem;
   .petition_new {
     font-size: 1.5rem;
     font-weight: 600;
+    margin-top: 1rem;
   }
 
   .petition_write {
@@ -21,7 +20,7 @@
     box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.12);
     padding: 2rem 1.5rem;
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 2rem;
 
     .petition_header {
       display: flex;
