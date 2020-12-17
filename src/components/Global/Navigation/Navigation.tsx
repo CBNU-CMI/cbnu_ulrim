@@ -1,12 +1,31 @@
 /* External dependencies */
-import React, { useEffect, useState, useRef } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import React, { useEffect, useCallback, useState, useRef } from 'react';
+import { useLocation, NavLink } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 /* Internal dependencies */
 import styles from './Navigation.module.scss';
 
 const cx = classNames.bind(styles);
+
+const ACTIVE_STYLE = {
+  color: '#2ac1bc',
+};
+
+function ExNavLink({ to, activePath, children }) {
+  const isActive = useCallback(
+    (match, location) => {
+      return activePath.includes(location.pathname);
+    },
+    [activePath],
+  );
+
+  return (
+    <NavLink to={to} isActive={isActive} activeStyle={ACTIVE_STYLE}>
+      {children}
+    </NavLink>
+  );
+}
 
 function Navigation() {
   const location = useLocation();
@@ -60,19 +79,25 @@ function Navigation() {
         {downState ? <p>{title}</p> : ''}
         <ul>
           <li>
-            <NavLink to="/petition" activeStyle={{ color: '#2ac1bc' }}>
+            <ExNavLink
+              to="/petition"
+              activePath={['/', '/petition', '/petition/write']}
+            >
               청원
-            </NavLink>
+            </ExNavLink>
           </li>
           <li>
-            <NavLink to="/poll" activeStyle={{ color: '#2ac1bc' }}>
+            <ExNavLink to="/poll" activePath={['/poll']}>
               투표
-            </NavLink>
+            </ExNavLink>
           </li>
           <li>
-            <NavLink to="/login" activeStyle={{ color: '#2ac1bc' }}>
+            <ExNavLink
+              to="/login"
+              activePath={['/login', '/signup', '/forgot', '/privacy']}
+            >
               로그인
-            </NavLink>
+            </ExNavLink>
           </li>
         </ul>
       </div>

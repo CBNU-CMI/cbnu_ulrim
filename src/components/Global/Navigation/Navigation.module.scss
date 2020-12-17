@@ -9,6 +9,7 @@
   top: 0.5rem;
   display: flex;
   align-items: center;
+  z-index: 1;
 
   &.down {
     background-color: rgba(57, 57, 57, 0.1);
