@@ -1,30 +1,36 @@
 /* External dependencies */
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 
 /* Internal dependencies */
-import styles from './PetitionList.module.scss';
+import { getPetitionList } from 'modules/reducers/petitionReducer';
+import * as petitionSelector from 'modules/selectors/petitionSelector';
 import PetitionCard from 'components/PetitionCard';
-import mockData from './mockData.json';
 import Write from 'components/Write';
+import styles from './PetitionList.module.scss';
 
 const cx = classNames.bind(styles);
 
 const ADDITIONAL_LOAD_COUNT = 5;
 
 function PetitionList() {
+  const dispatch = useDispatch();
+  const petitionList = useSelector(petitionSelector.getPetitionList);
+
   const observerRef = useRef<HTMLDivElement>(null);
   const writeRef = useRef<HTMLAnchorElement>(null);
 
   const [itemIndex, setItemIndex] = useState(0);
-  const [contents, setContents] = useState<Array<any>>([]);
   const [downState, setDownState] = useState(false);
 
+  const renderedPetitionList = useMemo(() => {
+    return petitionList.slice(0, itemIndex);
+  }, [petitionList, itemIndex]);
+
   useEffect(() => {
-    setContents(prev =>
-      prev.concat(mockData.slice(itemIndex, itemIndex + ADDITIONAL_LOAD_COUNT)),
-    );
-  }, [itemIndex]);
+    dispatch(getPetitionList());
+  }, [dispatch]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -79,7 +85,7 @@ function PetitionList() {
           <span className={cx('end')}>청원마감일</span>
           <span className={cx('agree-num')}>참여인원</span>
         </div>
-        {contents.map(petition => {
+        {renderedPetitionList.map(petition => {
           return <PetitionCard key={petition.id} petition={petition} />;
         })}
         <div ref={observerRef} />
