@@ -41,7 +41,7 @@ function Navigation() {
         intersectionObserverRef.current.disconnect();
       };
     }
-  }, [titleRef]);
+  }, []);
 
   return (
     <>
@@ -72,7 +72,7 @@ function Navigation() {
         </ul>
       </div>
       {title !== '로그인' && (
-        <h1 ref={titleRef} className={cx(downState ? 'no-title' : 'title')}>
+        <h1 ref={titleRef} className={cx('title', { hidden: downState })}>
           {title}
         </h1>
       )}

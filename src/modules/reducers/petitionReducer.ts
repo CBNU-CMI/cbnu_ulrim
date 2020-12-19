@@ -57,6 +57,8 @@ function petitionReeucer(state: State = initialState, action: Action) {
       return {
         ...state,
         petitionListFetching: true,
+        petitionListSuccess: false,
+        petitionListError: false,
       };
     case GET_PETITION_LIST_SUCCESS:
       return {
@@ -66,10 +68,13 @@ function petitionReeucer(state: State = initialState, action: Action) {
             list.set(petition.id, new Petition(petition));
           });
         }),
+        petitionListFetching: false,
+        petitionListSuccess: true,
       };
     case GET_PETITION_LIST_ERROR:
       return {
         ...state,
+        petitionListFetching: false,
         petitionListError: true,
       };
     default:
