@@ -1,57 +1,20 @@
 /* External dependencies */
-import React, { useEffect, useCallback, useState, useRef } from 'react';
-import { useLocation, NavLink } from 'react-router-dom';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 /* Internal dependencies */
+import { getTitleByPathName } from 'utils/stringUtils';
+import ExNavLink from 'elements/ExNavLink';
 import styles from './Navigation.module.scss';
 
 const cx = classNames.bind(styles);
 
-const ACTIVE_STYLE = {
-  color: '#2ac1bc',
-};
-
-function ExNavLink({ to, activePath, children }) {
-  const isActive = useCallback(
-    (match, location) => {
-      return activePath.includes(location.pathname);
-    },
-    [activePath],
-  );
-
-  return (
-    <NavLink to={to} isActive={isActive} activeStyle={ACTIVE_STYLE}>
-      {children}
-    </NavLink>
-  );
-}
-
 function Navigation() {
   const location = useLocation();
-  const [title, setTitle] = useState('');
-
-  useEffect(() => {
-    switch (location.pathname) {
-      case '/':
-        setTitle('청원');
-        break;
-      case '/petition':
-        setTitle('청원');
-        break;
-      case '/poll':
-        setTitle('투표');
-        break;
-      case '/login':
-        setTitle('로그인');
-        break;
-      default:
-        break;
-    }
-  }, [location.pathname]);
+  const titleRef = useRef<HTMLHeadingElement>(null);
 
   const [downState, setDownState] = useState(false);
-  const [titleRef, setTitleRef] = useState<HTMLHeadingElement>();
 
   const intersectionHandler = useRef<IntersectionObserverCallback>(
     ([entry]) => {
@@ -65,13 +28,20 @@ function Navigation() {
     }),
   );
 
+  const title = useMemo(() => {
+    return getTitleByPathName(location.pathname);
+  }, [location.pathname]);
+
   useEffect(() => {
-    if (!titleRef) return;
-    intersectionObserverRef.current.observe(titleRef);
-    return () => {
-      intersectionObserverRef.current.disconnect();
-    };
-  }, [titleRef]);
+    if (titleRef.current) {
+      intersectionObserverRef.current.observe(titleRef.current);
+
+      return function cleanup() {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        intersectionObserverRef.current.disconnect();
+      };
+    }
+  }, []);
 
   return (
     <>
@@ -101,15 +71,10 @@ function Navigation() {
           </li>
         </ul>
       </div>
-      {title !== '로그인' ? (
-        <h1
-          ref={ref => setTitleRef(ref as HTMLHeadingElement)}
-          className={cx(downState ? 'no-title' : 'title')}
-        >
+      {title !== '로그인' && (
+        <h1 ref={titleRef} className={cx('title', { hidden: downState })}>
           {title}
         </h1>
-      ) : (
-        ''
       )}
     </>
   );

@@ -12,8 +12,8 @@ function PetitionCard({ petition }) {
     <div className={cx('petition-card')}>
       <span className={cx('category')}>{petition.category}</span>
       <span className={cx('title')}>{petition.title}</span>
-      <span className={cx('end')}>{petition.end_date}</span>
-      <span className={cx('agree-num')}>{petition.agree_num}</span>
+      <span className={cx('end')}>{petition.dueDate}</span>
+      <span className={cx('agree-num')}>{petition.agreeCount}</span>
     </div>
   );
 }

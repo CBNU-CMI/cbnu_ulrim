@@ -1,59 +1,42 @@
 /* External dependencies */
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 
 /* Internal dependencies */
-import styles from './PetitionList.module.scss';
+import { getPetitionList } from 'modules/reducers/petitionReducer';
+import * as petitionSelector from 'modules/selectors/petitionSelector';
 import PetitionCard from 'components/PetitionCard';
-import mockData from './mockData.json';
 import Write from 'components/Write';
-import { PETITION_LIST } from '../../constants';
+import styles from './PetitionList.module.scss';
 
 const cx = classNames.bind(styles);
 
+const ADDITIONAL_LOAD_COUNT = 5;
+
 function PetitionList() {
-  var [itemIndex, setItemIndex] = useState(0);
-  const [contents, setContents] = useState(Array<any>([]));
-  const [downState, setDownState] = useState(false);
-  const [writeRef, setWriteRef] = useState<HTMLAnchorElement>();
+  const dispatch = useDispatch();
+  const petitionList = useSelector(petitionSelector.getPetitionList);
+
   const observerRef = useRef<HTMLDivElement>(null);
+  const writeRef = useRef<HTMLAnchorElement>(null);
 
-  const intersectionHandler = useRef<IntersectionObserverCallback>(
-    ([entry]) => {
-      setDownState(!entry.isIntersecting);
-    },
-  );
+  const [itemIndex, setItemIndex] = useState(0);
+  const [downState, setDownState] = useState(false);
 
-  const intersectionObserverRef = useRef<IntersectionObserver>(
-    new IntersectionObserver(intersectionHandler.current, {
-      rootMargin: '-100px -100px',
-    }),
-  );
+  const renderedPetitionList = useMemo(() => {
+    return petitionList.slice(0, itemIndex);
+  }, [petitionList, itemIndex]);
 
   useEffect(() => {
-    if (!writeRef) return;
-    intersectionObserverRef.current.observe(writeRef);
-    return () => {
-      intersectionObserverRef.current.disconnect();
-    };
-  }, [writeRef]);
-
-  useEffect(() => {
-    setContents(prev =>
-      prev.concat(
-        mockData.slice(
-          itemIndex,
-          itemIndex + PETITION_LIST.ADDITIONAL_LOAD_COUNT,
-        ),
-      ),
-    );
-  }, [itemIndex]);
+    dispatch(getPetitionList());
+  }, [dispatch]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setItemIndex(prev => prev + PETITION_LIST.ADDITIONAL_LOAD_COUNT);
+          setItemIndex(prev => prev + ADDITIONAL_LOAD_COUNT);
         }
       },
       {
@@ -70,14 +53,28 @@ function PetitionList() {
     };
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setDownState(!entry.isIntersecting);
+      },
+      {
+        rootMargin: '-100px -100px',
+      },
+    );
+
+    observer.observe(writeRef.current as HTMLAnchorElement);
+
+    return function cleanup() {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <div className={cx('petition_list')}>
       <div className={cx('petition_new')}>최신 청원들</div>
       <div className={cx('petition_write')}>
-        <a
-          ref={ref => setWriteRef(ref as HTMLAnchorElement)}
-          href="/petition/write"
-        >
+        <a ref={writeRef} href="/petition/write">
           지금 청원하기
         </a>
       </div>
@@ -88,12 +85,12 @@ function PetitionList() {
           <span className={cx('end')}>청원마감일</span>
           <span className={cx('agree-num')}>참여인원</span>
         </div>
-        {contents.map(petition => {
+        {renderedPetitionList.map(petition => {
           return <PetitionCard key={petition.id} petition={petition} />;
         })}
-        <div className="observer" ref={observerRef} />
+        <div ref={observerRef} />
       </div>
-      {downState ? <Write /> : ''}
+      {downState && <Write />}
     </div>
   );
 }
